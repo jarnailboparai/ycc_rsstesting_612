@@ -11,8 +11,8 @@
       ssl: false,
       limit: null,
       key: null,
-      layoutTemplate: "<ul data-role='listview' data-inset='true'>{entries}</ul>",
-      entryTemplate: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>',
+      layoutTemplate: '<ul>{entries}</ul>',
+      entryTemplate: '<li><a onclick="rssurlCode(\'{url}\');" href="javascript:void(0);">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>',
       tokens: {},
       outputMode: 'json',
       effect: 'show',
@@ -245,4 +245,10 @@
     return this; //implement chaining
   }
 
-})(jQuery)
+ })(jQuery);
+ 
+ function rssurlCode(arg)
+{
+    var ref = window.open(arg, '_blank', 'location=yes');
+    ref.show();
+}
