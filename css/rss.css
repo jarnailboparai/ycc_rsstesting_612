@@ -26,3 +26,8 @@
     .rsslist   a:hover {
         text-decoration: underline;
       }
+	  .error_rss{
+	  	color:#fff;
+		font-size:15px;
+		font-weight:600;
+	  }

@@ -24,12 +24,14 @@
 <script src="js/jquery.rss.js"></script>
    <link rel="stylesheet" href="css/rss.css" />
 	<script>
-		<!--  		http://rss.cnn.com/rss/edition_world.rss!>
-		<!--  		http://rss.cnn.com/rss/edition_sport.rss     http://feeds.feedburner.com/dawanda !>
-      jQuery(function($) {
+	  jQuery(function($) {
         $("#rss-feeds").rss("<!--RssFeedsLink-->", {
           limit: 15,
-          effect: 'slideFastSynced'
+         // effect: 'slideFastSynced',
+		   error: function() {
+       		$(".error_rss").addClass("no_data");
+			$(".error_rss").html("Url doesn't link to RSS-Feed");
+      },
         })
       })
     </script>
@@ -56,6 +58,7 @@ img {
   <!-- rss list starts here -->
   
   <div class="rsslist">
+  <div class="error_rss"></div>
 	 <div id="rss-feeds"></div>
   </div>
   

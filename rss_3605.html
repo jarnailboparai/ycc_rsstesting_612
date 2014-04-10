@@ -50,17 +50,21 @@
 
 	<script>
 
-		<!--  		http://rss.cnn.com/rss/edition_world.rss!>
-
-		<!--  		http://rss.cnn.com/rss/edition_sport.rss     http://feeds.feedburner.com/dawanda !>
-
-      jQuery(function($) {
+	  jQuery(function($) {
 
         $("#rss-feeds").rss("http://indiatoday.feedsportal.com/c/33614/f/589699/index.rss?http://indiatoday.intoday.in/rss/homepage-topstories.jsp", {
 
           limit: 15,
 
-          effect: 'slideFastSynced'
+         // effect: 'slideFastSynced',
+
+		   error: function() {
+
+       		$(".error_rss").addClass("no_data");
+
+			$(".error_rss").html("Url doesn't link to RSS-Feed");
+
+      },
 
         })
 
@@ -113,6 +117,8 @@ img {
   
 
   <div class="rsslist">
+
+  <div class="error_rss"></div>
 
 	 <div id="rss-feeds"></div>
 
